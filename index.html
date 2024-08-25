@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoreWare Engine</title>
+    <link rel="icon" href="CoreWare.png" type="image/png"> <!-- Favicon -->
+    <style>
+        body {
+            background-color: #181818;
+            color: #fff;
+            font-family: 'Helvetica Neue', sans-serif; /* Smooth modern font */
+            margin: 0;
+            padding: 0;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .container {
+            display: flex;
+            justify-content: flex-start; /* Aligns content to the left */
+            align-items: flex-start;
+            min-height: 75vh;
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #1c1c1c, #000000); /* Dark grey to black gradient */
+            border-radius: 10px; /* Rounded corners */
+        }
+
+        .content {
+            text-align: left; /* Aligns text to the left */
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .header img {
+            height: 80px; /* Adjust as needed */
+            width: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .info-text {
+            font-size: 20px; /* Moderately large font size */
+            line-height: 1.6; /* Improved readability */
+            color: #ddd; /* Slightly lighter color for better contrast */
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-decoration: none; /* Removes underline from link */
+            display: inline-block; /* Ensures button styling for links */
+            font-size: 16px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #121212;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            z-index: 10;
+            transition: background-color 0.3s ease, height 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 3.0);
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo img {
+            height: 50px;
+            width: auto;
+            transition: height 0.3s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            margin-left: auto;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px; /* Increased font size */
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+            color: #007bff;
+        }
+
+        /* Invisible border in the middle */
+        .invisible-border {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 1px;
+            height: 100vh;
+            background-color: transparent; /* Invisible border */
+            z-index: 0; /* Ensure it is behind the content */
+        }
+
+        /* New section style with blended transition */
+        .why-choose-us {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(180deg, #000000, #1c1c1c); /* Blended gradient */
+            color: #fff;
+            font-family: 'Helvetica Neue', sans-serif;
+            margin-top: -10px;
+            padding-top: 80px;
+        }
+
+        .why-choose-us h2 {
+            font-size: 48px;
+            margin: 0;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .why-choose-us p {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #ddd;
+            max-width: 800px;
+            margin: 0 auto; /* Centering the text */
+        }
+
+        .why-choose-us h3 {
+            font-size: 32px;
+            margin: 40px 0 20px 0;
+            line-height: 1.4;
+            color: #e0e0e0; /* Lighter color for subheadings */
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <div class="invisible-border"></div> <!-- Invisible border for left alignment -->
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="nav-logo">
+                <img src="CoreWare.png" alt="CoreWare Logo">
+                <span>CoreWare Engine</span>
+            </div>
+            <div class="nav-links">
+                <a href="#overview" class="nav-link">Overview</a> <!-- Links to Overview section -->
+                <a href="#why-choose-us" class="nav-link">Purpose</a> <!-- Links to Why Choose Us section -->
+                <a href="https://coreware.createaforum.com/index.php" class="nav-link">Forums</a> <!-- Updated link -->
+                <a href="News.html" class="nav-link">News</a>
+                <a href="documentations.html" class="nav-link">Documentation</a>
+            </div>
+        </div>
+    </nav>
+    <div id="overview" class="container">
+        <div class="content">
+            <div class="header">
+                <img src="CoreWare.png" alt="CoreWare Logo">
+                <h1>CoreWare Engine</h1>
+            </div>
+            <p class="info-text">CoreWare is built by developers, for developers. Our platform is designed to provide fair and equitable terms for everyone involved. We believe that every individual with a vision deserves access to the most open and advanced real-time creation tool available. With CoreWare, you can bring your ideas to life and revolutionize your development process with cutting-edge features and unmatched flexibility. Our state-of-the-art engine offers a robust set of tools and features that empower creators to push the boundaries of what’s possible. Whether you’re working on a small indie project or a large-scale production, CoreWare provides the performance, scalability, and support you need to succeed. From intuitive design workflows to advanced rendering capabilities, our engine is built to meet the demands of modern development. Join a growing community of innovators and experience the future of game development with CoreWare.</p>
+            <div class="buttons">
+                <a href="https://opensource.org/license/gpl-1-0" class="button">Learn About Licensing</a> <!-- Updated link -->
+            </div>
+        </div>
+    </div>
+    <div id="why-choose-us" class="why-choose-us">
+        <h2>Why Choose Us?</h2>
+
+        <h3>Scalability and Flexibility</h3>
+        <p>
+            Choosing CoreWare means embracing a future where creativity and innovation are at the forefront. Our engine is designed with scalability in mind, allowing developers to easily adapt to projects of any size. With a strong community of developers backing it, CoreWare offers not only the tools you need to build your vision but also the support to ensure you succeed. The flexibility of our engine allows you to work seamlessly across different platforms, ensuring your projects reach the widest possible audience.
+        </p>
+
+        <h3>Open and Transparent Platform</h3>
+        <p>
+            One of the key reasons to choose CoreWare is our commitment to providing an open and transparent platform. We believe in empowering developers with the freedom to customize and extend our engine to fit their specific needs. Whether you're creating a mobile game, a VR experience, or a AAA title, CoreWare's modular architecture allows you to pick and choose the features you need, without being bogged down by unnecessary bloat.
+        </p>
+
+        <h3>Performance and Optimization</h3>
+        <p>
+            Our engine is built with performance in mind. We understand that in today's fast-paced world, gamers expect nothing less than flawless experiences, whether they're playing on a high-end PC or a mobile device. Our advanced rendering engine, combined with state-of-the-art optimization tools, ensures that you can push the limits of what's possible without compromising on performance.
+        </p>
+
+        <h3>User-Friendly Interface</h3>
+        <p>
+            CoreWare's user-friendly interface is designed to make your development process as smooth as possible. With intuitive design tools and a streamlined workflow, you can focus on what matters most – bringing your creative vision to life. Whether you're a seasoned developer or just starting out, our interface is designed to be both powerful and accessible, allowing you to create complex projects without getting lost in technical details.
+        </p>
+
+        <h3>Strong Community Support</h3>
+        <p>
+            When you choose CoreWare, you're joining a vibrant community of developers who are just as passionate about game development as you are. Our community forums, extensive documentation, and responsive support team ensure that you never feel alone in your development journey. Whether you're looking for advice, troubleshooting help, or just want to share your latest project, you'll find a welcoming and supportive community ready to help you succeed.
+        </p>
+
+        <h3>Flexible Pricing Model</h3>
+        <p>
+            CoreWare's pricing model is also designed with developers in mind. We believe that access to cutting-edge technology shouldn't come with a prohibitive price tag. That's why CoreWare offers flexible pricing options that cater to developers of all sizes, from independent creators to large studios. We also offer a free version of our engine, with no royalties, allowing you to get started without any upfront costs.
+        </p>
+
+        <h3>Continuous Innovation</h3>
+        <p>
+            When you choose CoreWare, you're not just choosing an engine; you're choosing a partner in your creative journey. We're constantly innovating and adding new features to our engine, ensuring that you always have access to the latest tools and technologies. Our commitment to continuous improvement means that you can trust CoreWare to evolve alongside your projects, providing you with the support and features you need to stay ahead of the curve.
+        </p>
+
+        <h3>Conclusion</h3>
+        <p>
+            In conclusion, CoreWare is more than just a game engine; it's a platform designed to empower developers to create the future. With its powerful features, user-friendly interface, and strong community support, CoreWare is the ideal choice for developers looking to bring their creative visions to life. Whether you're just starting out or you're a seasoned veteran, CoreWare has the tools and resources you need to succeed in the ever-evolving world of game development. So why wait? Join the CoreWare community today and start building the future of gaming.
+        </p>
+    </div>
+</body>
+</html>

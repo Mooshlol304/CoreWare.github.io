@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest Feed</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #1e1e1e, #000000);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .header {
+            background: transparent;
+            color: #ffffff;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            font-size: 2.5em;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            margin-top: 80px; /* Adjust based on header height */
+            text-align: center;
+        }
+
+        .twitter-tweet {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        Latest Feed
+    </div>
+    <div class="content">
+        <blockquote class="twitter-tweet">
+            <p lang="en" dir="ltr">You all need to really support <a href="https://twitter.com/IvanNew593828?ref_src=twsrc%5Etfw">@IvanNew593828</a>, such an underrated artist.<br><br>ALSO COME AND WORK AT TRYANGLE WE'RE ALWAYS OPEN!!!!</p>
+            &mdash; TryAngle Software (@tryanglesoftwar) <a href="https://twitter.com/tryanglesoftwar/status/1816088488892407915?ref_src=twsrc%5Etfw">July 24, 2024</a>
+        </blockquote>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+</body>
+</html>
