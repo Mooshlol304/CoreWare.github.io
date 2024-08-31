@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoreWare Engine Download Page</title>
+    <link rel="icon" href="CoreWare.png" type="image/png"> <!-- Favicon -->
+    <style>
+        body {
+            background-image: linear-gradient(to right, rgb(36, 36, 36) , rgb(5, 5, 5));
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .page-title {
+            margin-top: 0;
+            text-align: center;
+            color: white;
+            font-size: 2.25rem; /* Increased font size for the title */
+            animation: slideIn 1.5s ease-out; /* Apply animation to page title */
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .os-container {
+            display: flex;
+            gap: 300px; /* Increased space between squares */
+            margin-top: 75px; /* Moved down slightly */
+            position: relative;
+            width: 100%;
+            max-width: 1200px; /* Limit maximum width */
+            align-items: center;
+            margin-left: 100px; /* Align items so it doesn't look ugly */
+        }
+
+        .os-square {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(36, 36, 36);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Lowered scale transition */
+            padding: 15px; /* Added padding for text */
+            cursor: pointer; /* Pointer cursor for better UX */
+        }
+
+        .os-square:hover {
+            background-color: orange;
+            transform: scale(1.1); /* Lowered scale effect */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .os-square.selected {
+            background-color: white;
+            color: black;
+        }
+
+        .os-logo {
+            max-width: 60%;
+            max-height: 60%;
+            margin-bottom: 10px; /* Space between logo and text */
+        }
+
+        .os-text {
+            color: white;
+            font-size: 14px;
+            margin-top: 5px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .os-square.selected .os-text {
+            color: black; /* Darker text color when selected */
+        }
+
+        .highlight-rectangle {
+            position: fixed; /* Use fixed positioning to span the full viewport width */
+            width: 95vw; /* Width of 95% of the viewport width */
+            height: 80%; /* Increased height */
+            background-image: linear-gradient(to right, rgb(41, 41, 41) , rgb(27, 27, 27));
+            border-radius: 10px;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            left: 2.5vw; /* Left margin to center the rectangle */
+            right: 2.5vw; /* Right margin to center the rectangle */
+            bottom: 20px; /* Position it slightly above the bottom of the viewport */
+            display: flex;
+            flex-direction: column; /* Changed to column for stacked sections */
+            padding: 30px; /* Added padding for spacing */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+        }
+
+        .highlight-rectangle.active {
+            opacity: 1;
+            transform: translateY(0); /* Ensure it appears below the container */
+        }
+
+        .highlight-rectangle .section {
+            margin-bottom: 20px; /* Spacing between sections */
+            font-size: 1.5rem; /* Increased font size */
+            color: white; /* White font color */
+            display: flex;
+            flex-direction: column; /* Column layout for sections */
+            padding-top: 20px; /* Move text up */
+        }
+
+        .highlight-rectangle .section div {
+            margin: 5px; /* Reduced margin */
+        }
+
+        .highlight-rectangle .section .text {
+            margin-bottom: 100px; /* Spacing between text and content */
+        }
+
+        .highlight-rectangle .section .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column; /* Column layout for content items */
+        }
+
+        /* Existing CSS rules here... */
+
+        .highlight-rectangle .section .content div {
+           font-size: 1.45rem; /* Increased font size */
+            margin-bottom: 65px; /* Increased vertical spacing */
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="page-title">
+        <h1>Download CoreWare Launcher</h1>
+        <p>1# Game Engine for Developers</p>
+    </div>
+    <div class="os-container">
+        <div class="os-square" data-os="windows" id="default-os">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Windows_logo_-_2021.svg" class="os-logo">
+            <div class="os-text">Windows</div>
+        </div>
+        <div class="os-square" data-os="macos">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="os-logo">
+            <div class="os-text">MacOS</div>
+        </div>
+        <div class="os-square" data-os="linux">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png" class="os-logo">
+            <div class="os-text">Linux</div>
+        </div>
+        <div class="highlight-rectangle" id="highlight-rectangle">
+            <div class="section" id="windows-section">
+                <div class="text">Windows Download Options:</div>
+                <div class="content">
+                    <div>Windows Download x86 (supported)</div>
+                    <div>Windows Download 64 bit (supported) </div>
+                </div>
+            </div>
+            <div class="section" id="macos-section">
+                <div class="text">MacOS Download Options:</div>
+                <div class="content">
+                    <div>MacOS Download (supported)</div>
+                </div>
+            </div>
+            <div class="section" id="linux-section">
+                <div class="text">Linux Download Options:</div>
+                <div class="content">
+                    <div>Linux Download tar.gz (supported)</div>
+                    <div>Linux Download tar.gz (unsupported)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const osSquares = document.querySelectorAll('.os-square');
+            const highlightRectangle = document.getElementById('highlight-rectangle');
+            const windowsSection = document.getElementById('windows-section');
+            const macosSection = document.getElementById('macos-section');
+            const linuxSection = document.getElementById('linux-section');
+
+            function selectOS(osSquare) {
+                osSquares.forEach(square => square.classList.remove('selected'));
+                osSquare.classList.add('selected');
+
+                const containerRect = document.querySelector('.os-container').getBoundingClientRect();
+                highlightRectangle.style.top = `${containerRect.bottom + window.scrollY + 20}px`; // Extra spacing below the container
+                highlightRectangle.classList.add('active');
+                
+                // Hide all sections
+                windowsSection.style.display = 'none';
+                macosSection.style.display = 'none';
+                linuxSection.style.display = 'none';
+
+                // Show the relevant section
+                switch (osSquare.dataset.os) {
+                    case 'windows':
+                        windowsSection.style.display = 'flex';
+                        break;
+                    case 'macos':
+                        macosSection.style.display = 'flex';
+                        break;
+                    case 'linux':
+                        linuxSection.style.display = 'flex';
+                        break;
+                }
+            }
+
+            // Set default selection
+            selectOS(document.getElementById('default-os'));
+
+            osSquares.forEach(square => {
+                square.addEventListener('click', () => selectOS(square));
+            });
+        });
+    </script>
+</body>
+</html>
